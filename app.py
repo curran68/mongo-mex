@@ -19,8 +19,8 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/recipes")
-def recipes():
+@app.route("/get_recipes")
+def get_recipes():
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
     
@@ -108,11 +108,35 @@ def add_recipe():
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully Added")
-        return redirect(url_for("recipes"))
+        return redirect(url_for("get_recipes"))
 
     recipes = mongo.db.recipes.find().sort("recipe_name", 1)
-    return render_template("recipe.html", recipes=recipes)
+    return render_template("add_recipe.html", recipes=recipes)
 
+
+@app.route("/delete_recipe/<recipe_id>", methods=["GET", "POST"])
+def delete_recipe(recipe_id):
+    # Check if user is logged in
+    if "user" not in session:
+        flash("You need to be logged in to delete recipes")
+        return redirect(url_for("login"))
+
+    # Get the recipe from MongoDB
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+
+    # Check if recipe exists and belongs to the current user
+    if not recipe:
+        flash("Recipe not found")
+        return redirect(url_for("get_recipes"))
+    
+    if recipe["created_by"] != session["user"]:
+        flash("You can only delete your own recipes")
+        return redirect(url_for("get_recipes"))
+
+    # Delete the recipe
+    mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
+    flash("Recipe successfully deleted")
+    return redirect(url_for("get_recipes"))
 
 
 if __name__ == "__main__":
