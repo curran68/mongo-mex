@@ -19,8 +19,8 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/get_recipes")
-def get_recipes():
+@app.route("/recipes")
+def recipes():
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
     
@@ -108,19 +108,11 @@ def add_recipe():
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully Added")
-        return redirect(url_for("get_recipes"))
+        return redirect(url_for("recipes"))
 
     recipes = mongo.db.recipes.find().sort("recipe_name", 1)
-    return render_template("add_recipe.html", recipes=recipes)
+    return render_template("recipe.html", recipes=recipes)
 
-
-@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
-def edit_task(recipe_id):
-    task = mongo.db.recipes.find_one({"_id": ObjectId(task_id)})
-        recipes = mongo.db.recipes.find().sort("recipe_course", 1)
-        return render_template("edit_recipe.html", recipes=recipes)
-
-    
 
 
 if __name__ == "__main__":
