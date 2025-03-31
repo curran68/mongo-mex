@@ -4,7 +4,8 @@
     <h3 class="white-text blue-grey lighten-1 center-align text-shadow">Add Recipe</h3>
     <!--recipe name-->
     <div class="row">
-        <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
+        <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}" enctype="multipart/form-data">
+            <!-- Existing fields -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-user-circle prefix light-blue-text text-darken-4"></i>
@@ -53,6 +54,16 @@
                       <label for="recipe_cooktime">Cook Time</label>
                     </div>
             </div>
+            <!-- Image Upload -->
+        <div class="file-field input-field col s12">
+            <div class="btn blue-grey lighten-1">
+                <span>Upload Image</span>
+                <input type="file" name="recipe_image" id="recipe_image" accept="image/*" required>
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Upload an image for the recipe">
+            </div>
+        </div>
             <!--submit-->
             <div class="row">
                 <div class="col s12 center-align">

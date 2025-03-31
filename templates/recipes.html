@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<h3 class="white-text blue-grey lighten-1 center-align text-shadow">
-    Welcome to Mexciana below is where recipes will be listed.</h3>
-
-
+    <h3 class="black-text">Recipes</h3>
+    <p>
+        Please see the section for recipes below ...
+    </p>
+    <br>
    <ul class="collapsible">
         {% for recipe in recipes %}
         <li>
@@ -19,18 +19,27 @@
                 </a>
         {% endif %}
 
-                </div>
+            </div>
                 <strong>{{ recipe.recipe_description }}</strong> : {{ recipe.recipe_name }}
             </div>
             <div class="collapsible-body">
-                <strong>
-                    {{ recipe.recipe_ingredients }}<br>
-                </strong>
-                <p>{{ recipe.recipe_servings }}</p>
-                <p>{{ recipe.recipe_instructions }}</p>
-                <p>{{ recipe.recipe_cooktime }}</p>
-                <p><em>by: {{ recipe.created_by }}</em></p>
+                <div class="row">
+                    <!-- Image Column -->
+                    <div class="col s12 m4">
+                        <img src="/static/images/tortilla.jpg" alt="{{ recipe.recipe_name }}" class="responsive-img">
+                    </div>
+                    <!-- Recipe Details Column -->
+                    <div class="col s12 m8">
+                        <strong>{{ recipe.recipe_description }}</strong> : {{ recipe.recipe_name }}
+                        <p><strong>Ingredients:</strong> {{ recipe.recipe_ingredients }}</p>
+                        <p><strong>Servings:</strong> {{ recipe.recipe_servings }}</p>
+                        <p><strong>Instructions:</strong> {{ recipe.recipe_instructions }}</p>
+                        <p><strong>Cook Time:</strong> {{ recipe.recipe_cooktime }}</p>
+                        <p><em>by: {{ recipe.created_by }}</em></p>
+                    </div>
+                </div>
             </div>
+            
         </li>
         {% endfor %}
       </ul>

@@ -5,6 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 if os.path.exists("env.py"):
     import env
 
@@ -98,13 +99,22 @@ def logout():
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
+        # Handle image upload
+        recipe_image = request.files.get("recipe_image")
+        image_filename = None
+        if recipe_image and recipe_image.filename != "":
+            image_filename = secure_filename(recipe_image.filename)
+            recipe_image.save(os.path.join("static/images", image_filename))
+
+        # Create recipe dictionary
         recipe = {
             "recipe_description": request.form.get("recipe_description"),
             "recipe_name": request.form.get("recipe_name"),
-            "recipe_ingredients": request.form.getlist("recipe_ingredients"),
+            "recipe_ingredients": request.form.get("recipe_ingredients"),
             "recipe_servings": request.form.get("recipe_servings"),
             "recipe_cooktime": request.form.get("recipe_cooktime"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "image_filename": image_filename  # Save filename in database
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully Added")
