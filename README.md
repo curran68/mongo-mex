@@ -1,7 +1,7 @@
 # 📖 Mexicana Milestone Project 3 By Mark Curran
 
 This is my design on a recipe website  
-!Mexicana(static/images/header.jpg)  
+![Mexicana](static/images/header.jpg)  
 
 ---
 
