@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Joti+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css">
@@ -36,7 +37,7 @@
           </nav>
         <!--mobile side bar-->
           <ul class="sidenav" id="mobile-demo">
-            <l><h4 class="center-align blue-grey lighten-5">Mexicana</h4></li>
+            <li><h4 class="center-align blue-grey lighten-5">Mexicana</h4></li>
                 <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
                 {% if session.user %}
                   <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
@@ -48,6 +49,7 @@
                 {% endif %}
           </ul>
     </header>
+
     <div id="myModal" class="modal">
       <div class="modal-content">
           <h4><i>Welcome To Mexicana........</i></h4>
@@ -58,7 +60,6 @@
 
     <section>
       <!--flash messages-->
-      <!-- flash messages -->
       {% with messages = get_flashed_messages() %}
       {% if messages %}
           {% for message in messages %}

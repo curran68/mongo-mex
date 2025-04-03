@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h3 class="black-text">Recipes</h3>
-    <p>
-        Please see the section for recipes below ...
-    </p>
+    <br>
+    <br>
+    <h4 class="title">Welcome To Mexicana a Fun Website Showcasing Mexican Food.</h4>
+    
+    <hr>
+    <br>
+    <h4 class="black-text">Please use the dropdown menu below to see more .. </h4>
+    <br>
+    
+
     <br>
    <ul class="collapsible">
         {% for recipe in recipes %}
@@ -41,6 +47,7 @@
             </div>
             
         </li>
+        
         {% endfor %}
       </ul>
 {% endblock %}

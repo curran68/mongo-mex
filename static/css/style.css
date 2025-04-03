@@ -1,4 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Joti+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+.title {
+    font-family: 'Joti One', sans-serif;
+    font-size: 2.50em;
+    color: #333;
+    text-align: left;
+    margin-top: 20px;
+}
 
 body {
     font-family: 'Open Sans', sans-serif;
