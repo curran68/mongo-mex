@@ -45,14 +45,14 @@
                         <p><strong>Description:</strong> {{ recipe.recipe_description }}</p>
                         <p><strong>Ingredients:</strong></p>
                         <ul>
-                            {% for ingredient in recipe.ingredients_list %}
+                            {% for ingredient in recipe.ingredients %}
                                 <li>{{ ingredient }}</li>
                             {% endfor %}
                         </ul>
                         <p><strong>Servings:</strong> {{ recipe.recipe_servings }}</p>
                         <p><strong>Instructions:</strong></p>
                         <ol>
-                            {% for instruction in recipe.method_list %}
+                            {% for instruction in recipe.ingredients %}
                                 <li>{{ instruction }}</li>
                             {% endfor %}
                         </ol>

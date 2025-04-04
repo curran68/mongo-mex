@@ -110,7 +110,7 @@ def add_recipe():
         recipe = {
             "recipe_description": request.form.get("recipe_description"),
             "recipe_name": request.form.get("recipe_name"),
-            "recipe_ingredients": request.form.get("recipe_ingredients"),
+            "recipe_ingredients": request.form.getlist("recipe_ingredients"),
             "recipe_servings": request.form.get("recipe_servings"),
             "recipe_cooktime": request.form.get("recipe_cooktime"),
             "created_by": session["user"],
@@ -120,8 +120,8 @@ def add_recipe():
         flash("Recipe Successfully Added")
         return redirect(url_for("get_recipes"))
 
-    recipes = mongo.db.recipes.find().sort("recipe_name", 1)
-    return render_template("add_recipe.html", recipes=recipes)
+    courses = mongo.db.courses.find().sort("recipe_course", 1)
+    return render_template("add_recipe.html", courses=courses)
 
 
 @app.route("/delete_recipe/<recipe_id>", methods=["GET", "POST"])

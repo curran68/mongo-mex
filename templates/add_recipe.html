@@ -8,11 +8,10 @@
             <div class="row">
                 <div class="input-field col s12">                    
                     <select id="recipe_name" name="recipe_name" class="validate" required>
-                        <option value="" disabled selected>Choose Recipe</option>
-                        {% for recipe in recipes %}
-                            <option value="{{ recipe.recipe_name }}">{{ recipe.recipe_name }}</option>
+                        <option value="" disabled selected>Choose Course</option>
+                        {% for course in courses %}
+                            <option value="{{ course.recipe_course }}">{{ course.recipe_course }}</option>
                         {% endfor %}
-                        <option value="1">Option 1</option>
                     </select>
                     <label>Choose Course</label>
                 </div>
