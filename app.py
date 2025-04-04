@@ -116,6 +116,8 @@ def add_recipe():
             "created_by": session["user"],
             "image_filename": image_filename  # Save filename in database
         }
+
+        
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully Added")
         return redirect(url_for("get_recipes"))
