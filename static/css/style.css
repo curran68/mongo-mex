@@ -52,8 +52,12 @@ body {
 
   /* modal */
   nav a {
-    color: #fff;
+    color: red;
     font-size: xx-large;
+}
+
+nav a:hover {
+    color: orange; /* change this to whatever color you like */
 }
 
 #myModal .modal-content img {
