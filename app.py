@@ -179,7 +179,7 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
     flash("Recipe successfully deleted")
     return redirect(url_for("get_recipes"))
-
+    
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
