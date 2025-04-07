@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="white-text blue-grey lighten-1 center-align text-shadow">Edit Recipe</h3>
+
+
+        <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" enctype="multipart/form-data">
+            
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-hamburger prefix light-blue-text text-darken-4"></i>                    
+                    <select id="recipe_course" name="recipe_course" class="validate" required>
+                        <option value="" disabled selected>Choose Course</option>
+                        {% for course in courses %}
+                            <option value="{{ course.recipe_course }}">{{ course.recipe_course }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="recipe_course">Choose Course</label>
+                </div>
+                </div>
+            </div>
+            <!-- Existing fields -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-user-circle prefix light-blue-text text-darken-4"></i>
+                    <input id="recipe_name" name="recipe_name" minlength="4" max-lenght="40"
+                        type="text" class="validate">
+                    <label for="recipe_name">Recipe Name</label>
+                </div>
+            </div>
+            <!--recipe description-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-hamburger prefix light-blue-text text-darken-4"></i>
+                    <input id="recipe_description" name="recipe_description" 
+                        minlength="4" max-lenght="40"
+                        type="text" class="validate">
+                    <label for="recipe_description">Course Type</label>
+                </div>
+            </div>
+            <!--servings-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-bowl-food prefix light-blue-text text-darken-4"></i>
+                    <input id="recipe_servings" name="recipe_servings" 
+                        minlength="4" max-lenght="40"
+                        type="text" class="validate">
+                    <label for="recipe_servings">Servings</label>
+                </div>
+            </div>
+            <!--ingredients-->
+            <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-pencil prefix light-blue-text text-darken-4"></i>
+                      <textarea id="recipe_ingredients" name="recipe_ingredients" 
+                      minlength="4" max-lenght="200"
+                        class="materialize-textarea validate" required></textarea>
+                      <label for="recipe_ingredients">Ingredients</label>
+                    </div>
+            </div>
+            <!--recipe cook time-->
+            <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-pencil prefix light-blue-text text-darken-4"></i>
+                      <textarea id="recipe_cooktime" name="recipe_cooktime" 
+                      minlength="4" max-lenght="200"
+                        class="materialize-textarea validate" required></textarea>
+                      <label for="recipe_cooktime">Cook Time</label>
+                    </div>
+            </div>
+            <!-- Image Upload -->
+        <div class="file-field input-field col s12">
+            <div class="btn blue-grey lighten-1">
+                <span>Upload Image</span>
+                <input type="file" name="recipe_image" id="recipe_image" accept="image/*" required>
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Upload an image for the recipe">
+            </div>
+        </div>
+            <!--submit-->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large blue-grey lighten-1 text-shadow">
+                        Edit <i class="fas fa-edit right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

@@ -126,6 +126,39 @@ def add_recipe():
     return render_template("add_recipe.html", courses=courses)
 
 
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    courses = mongo.db.courses.find().sort("recipe_course", 1)
+    if request.method == "POST":
+        # Handle image upload
+        recipe_image = request.files.get("recipe_image")
+        image_filename = None
+        if recipe_image and recipe_image.filename != "":
+            image_filename = secure_filename(recipe_image.filename)
+            recipe_image.save(os.path.join("static/images", image_filename))
+
+        # Create recipe dictionary
+        recipe = {
+            "recipe_description": request.form.get("recipe_description"),
+            "recipe_name": request.form.get("recipe_name"),
+            "recipe_ingredients": request.form.getlist("recipe_ingredients"),
+            "recipe_servings": request.form.get("recipe_servings"),
+            "recipe_cooktime": request.form.get("recipe_cooktime"),
+            "created_by": session["user"],
+            "image_filename": image_filename  # Save filename in database
+        }
+
+        # Update the recipe in MongoDB
+        mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, {"$set": recipe})
+        flash("Recipe Successfully Updated")
+        return redirect(url_for("get_recipes"))
+
+    # Get the recipe from MongoDB
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    courses = mongo.db.courses.find().sort("recipe_course", 1)
+    return render_template("edit_recipe.html", recipe=recipe, courses=courses)
+
 @app.route("/delete_recipe/<recipe_id>", methods=["GET", "POST"])
 def delete_recipe(recipe_id):
     # Check if user is logged in
