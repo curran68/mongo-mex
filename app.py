@@ -109,7 +109,7 @@ def add_recipe():
         # Create recipe dictionary
         recipe = {
             "recipe_name": request.form.get("recipe_name"),
-            "recipe_ingredients": request.form.get("recipe_ingredients"),
+            "recipe_ingredients": request.form.get("recipe_ingredients").split("\n"),
             "recipe_servings": request.form.get("recipe_servings"),
             "recipe_cooktime": request.form.get("recipe_cooktime"),
             "created_by": session["user"],
@@ -139,7 +139,7 @@ def edit_recipe(recipe_id):
         # Create recipe dictionary
         recipe = {
             "recipe_name": request.form.get("recipe_name"),
-            "recipe_ingredients": request.form.get("recipe_ingredients"),
+            "recipe_ingredients": request.form.get("recipe_ingredients").split("\n"),
             "recipe_servings": request.form.get("recipe_servings"),
             "recipe_cooktime": request.form.get("recipe_cooktime"),
             "created_by": session["user"],

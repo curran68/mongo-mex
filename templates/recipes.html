@@ -46,12 +46,6 @@
                     <div class="col s12 m8">
                         <h4>{{ recipe.recipe_name }}</h4>
                         <p><strong>Ingredients:</strong> {{ ', '.join(recipe.recipe_ingredients) }}</p>
-
-                        <ul>
-                            {% for ingredient in recipe.recipe_ingredients %}
-                                <li>{{ ingredient }}</li>
-                            {% endfor %}
-                        </ul>
                         <p><strong>Servings:</strong> {{ recipe.recipe_servings }}</p>
                         <p><strong>Cook Time:</strong> {{ recipe.recipe_cooktime }}</p>
                         <p><em>Created By: {{ recipe.created_by }}</em></p>
