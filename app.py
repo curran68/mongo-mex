@@ -108,7 +108,6 @@ def add_recipe():
 
         # Create recipe dictionary
         recipe = {
-            "recipe_description": request.form.get("recipe_description"),
             "recipe_name": request.form.get("recipe_name"),
             "recipe_ingredients": request.form.getlist("recipe_ingredients"),
             "recipe_servings": request.form.get("recipe_servings"),
@@ -116,8 +115,7 @@ def add_recipe():
             "created_by": session["user"],
             "image_filename": image_filename  # Save filename in database
         }
-
-        
+ 
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully Added")
         return redirect(url_for("get_recipes"))
@@ -140,7 +138,6 @@ def edit_recipe(recipe_id):
 
         # Create recipe dictionary
         recipe = {
-            "recipe_description": request.form.get("recipe_description"),
             "recipe_name": request.form.get("recipe_name"),
             "recipe_ingredients": request.form.getlist("recipe_ingredients"),
             "recipe_servings": request.form.get("recipe_servings"),
