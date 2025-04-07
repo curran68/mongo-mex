@@ -1,7 +1,7 @@
 # 📖 Mexicana Milestone Project 3 By Mark Curran
 
 This is my design on a recipe website  
-![Mexicana](static/images/header.jpg)  
+![Mexicana](static/images/header.jpg) 
 
 ---
 
@@ -26,15 +26,21 @@ This is my design on a recipe website
 ---
 
 ## 🚀 Quick Start
-### Prerequisites
-- GitHub
-- Microsoft VS Code
-- Python 3.10+
-- MongoDB Atlas account
-- Flask
-- Pymongo
-- Jinja Formatting
-- Heroku
+### Software/Technologies Used In This Project.
+
+# Software used
+
+  ## List
+  
+1- GitHub
+2- Microsoft VS Code
+3- Python 3.10+
+4- MongoDB Atlas account
+5- Flask
+6- Pymongo
+7- Jinja Formatting
+8- Heroku
+
 
 
 ### Installation
@@ -55,7 +61,6 @@ Repository created in Github, cloned into Microsoft VS Code followed standard pr
 
 - As a registered user, I want to save my favorite recipes, so I can easily find them later.
 - As a registered user, I want to create a personal profile, so I can share my cooking interests.
-- As a registered user, I want to rate recipes and leave comments, so I can share my experience with others.
 - As a registered user, I want to create shopping lists based on recipes, so I can efficiently plan my grocery shopping.
 - As a registered user, I want to receive recommendations based on my previous activity, so I can discover new recipes that match my taste.
 
@@ -65,11 +70,17 @@ Repository created in Github, cloned into Microsoft VS Code followed standard pr
 - As a contributor, I want to edit recipes I've submitted, so I can improve them based on feedback.
 - As a contributor, I want to categorize my recipes appropriately, so users can find them easily.
 - As a contributor, I want to include preparation and cooking times, so users know how long a recipe takes.
-- As a contributor, I want to upload multiple photos of the cooking process, so users can see how each step should look.
+- As a contributor, I want to upload photos to provide an example of the finished dish.
 
 
 
 ## Wireframes
+
+![Wireframes](static/wireframes/landing.jpg)
+![Wireframes](static/wireframes/login.jpg)
+![Wireframes](static/wireframes/profile.jpg)
+![Wireframes](static/wireframes/recipeadd.jpg)
+![Wireframes](static/wireframes/register.jpg)
 
 
 ## Validation Tests
