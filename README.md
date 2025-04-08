@@ -56,7 +56,7 @@ I have created the colour scheme which i feel to be clean and eyecatching.
 
 Colour varaition used is :-
 
-![Wireframes](static/wireframes/landing.jpg)
+![Colours](static/images/color.jpg)
 
 
 
