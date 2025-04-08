@@ -47,6 +47,19 @@ This is my design on a recipe website
 
 Repository created in Github, cloned into Microsoft VS Code followed standard procedures.
 
+Process followed, created database in Mongodb to enable Data to be adapted updated etc. Installation of Python Pymongo etc to enable connectivity added routes etc.
+Within VS Code created Base templates to allow use of Jinja formatting alongside created extra templates in a static directory and linked accordingly.
+
+As per the wireframes shown below, designed around the materialize responsive format Mexicana logo doubles as a modal to show an extra feature. 
+Navbar designed with eyecatching colours/design.
+I have created the colour scheme which i feel to be clean and eyecatching.
+
+Colour varaition used is :-
+
+![Wireframes](static/wireframes/landing.jpg)
+
+
+
 # User Stories - Mexicana Recipe Website
 
 ## Visitor User Stories
