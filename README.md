@@ -1,7 +1,24 @@
 # 📖 Mexicana Milestone Project 3 By Mark Curran
 
-This is my design on a recipe website  
+This is my design on a recipe website 
+
 ![Mexicana](static/images/header.jpg) 
+
+### Brief Introduction
+
+I have been intesrested in cooking for a good number of years one particluar recipe is Chilli Con Carne, i have varied the recipe so many times and 
+now finally i would say have perfected it. This has inspired me to further my interest and search for and try new recipes.
+
+Having visited Mexico this trip gave me more ideas and inspiration.
+
+This website i feel can be grown with more ideas features etc further down the line.
+
+I have designed this with three main recipe sections :-
+
+1. _Starters_
+2. _Mains_ 
+3. _Desserts_
+
 
 ---
 Mexicana Repo - https://github.com/curran68/mongo-mex.git
@@ -45,7 +62,7 @@ Mexicana Repo - https://github.com/curran68/mongo-mex.git
 11. JQuery
 12. Werkzeug
 
-Fonts used in this site are from Google Fonts, i have used Two different ones 
+Fonts used in this site are from Google Fonts, i have used Two different ones (Joti One and Albert Sans).
 
 ### Installation
 
