@@ -71,7 +71,7 @@ Fonts used in this site are from Google Fonts, i have used Two different ones (J
 
 Repository created in Github, cloned into Microsoft VS Code followed standard procedures.
 
-Process followed, created database in Mongodb to enable Data to be adapted updated etc. Installation of Python Pymongo etc to enable connectivity added routes etc.
+Process followed, created database in Mongodb to enable Data to be adapted updated accordingly. Installation of Python Pymongo to enable connectivity added routes where applicable.
 Within VS Code created Base templates to allow use of Jinja formatting alongside created extra templates in a static directory and linked accordingly.
 
 As per the wireframes shown below, designed around the materialize responsive format Mexicana logo doubles as a modal to show an extra feature. 
@@ -105,6 +105,8 @@ Colour varaition used is :-
 - As a contributor, I want to categorize my recipes appropriately, so users can find them easily.
 - As a contributor, I want to include preparation and cooking times, so users know how long a recipe takes.
 - As a contributor, I want to upload photos to provide an example of the finished dish.
+
+## Layout Examples
 
 
 
