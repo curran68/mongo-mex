@@ -32,15 +32,17 @@ This is my design on a recipe website
 
   ## List
   
-1- GitHub
-2- Microsoft VS Code
-3- Python 3.10+
-4- MongoDB Atlas account
-5- Flask
-6- Pymongo
-7- Jinja Formatting
-8- Heroku
-
+1. GitHub
+2. Microsoft VS Code
+3. Python 3.10+
+4. MongoDB Atlas account
+5. Flask
+6. Pymongo
+7. Jinja Formatting
+8. Heroku
+9. Materialize
+10. Fontawesome
+11. JQuery
 
 
 ### Installation
