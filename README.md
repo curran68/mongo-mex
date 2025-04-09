@@ -19,6 +19,9 @@ I have designed this with three main recipe sections :-
 2. _Mains_ 
 3. _Desserts_
 
+I have designed the site with the intention of allowing users to be able to view recipes, add, modify and upload images.
+Layout has been designed to be relaively simple, easy to navigate and informative.
+On the site i have implemented some sample images of Mexican food to highlight variation, colours etc.
 
 ---
 Mexicana Repo - https://github.com/curran68/mongo-mex.git
