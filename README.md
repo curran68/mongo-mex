@@ -43,7 +43,9 @@ Mexicana Repo - https://github.com/curran68/mongo-mex.git
 9. Materialize
 10. Fontawesome
 11. JQuery
+12. Werkzeug
 
+Fonts used in this site are from Google Fonts, i have used Two different ones 
 
 ### Installation
 
@@ -67,7 +69,6 @@ Colour varaition used is :-
 ## Visitor User Stories
 
 - As a visitor, I want to browse recipes by category (appetizers, main dishes, desserts) so that I can find recipes that match my current needs.
-- As a visitor, I want to search for recipes using ingredients I already have, so I can make meals without shopping for additional items.
 - As a visitor, I want to view detailed recipe instructions with clear step-by-step guidance, so I can successfully prepare the dish.
 - As a visitor, I want to see high-quality images of completed dishes, so I can visualize what I'm making.
 - As a visitor, I want to adjust serving sizes, so I can cook for different numbers of people.
@@ -75,9 +76,7 @@ Colour varaition used is :-
 ## Registered User Stories
 
 - As a registered user, I want to save my favorite recipes, so I can easily find them later.
-- As a registered user, I want to create a personal profile, so I can share my cooking interests.
 - As a registered user, I want to create shopping lists based on recipes, so I can efficiently plan my grocery shopping.
-- As a registered user, I want to receive recommendations based on my previous activity, so I can discover new recipes that match my taste.
 
 ## Recipe Contributor Stories
 
