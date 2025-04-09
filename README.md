@@ -1,4 +1,4 @@
-# 📖 Mexicana Milestone Project 3 By Mark Curran
+# 📖 Mexicana  - Milestone Project 3 By Mark Curran
 
 This is my design on a Mexican themed recipe website.
 
