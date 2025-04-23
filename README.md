@@ -121,4 +121,6 @@ Colour varaition used is :-
 
 ## Validation Tests
 
-
+When running the W3 Validation tests i found that my Jinja formatting caused issues with the W3 tests, i tried all the usual 
+forms of troubleshooting and apparently this is a known problem.
+I contacted my Code Institute mentor, who could not provide a valid solution. It was sugggested i mention this in my README.md document.
