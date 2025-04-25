@@ -130,6 +130,13 @@ When running the W3 Validation tests i found that my Jinja formatting caused iss
 forms of troubleshooting and apparently this is a known problem.
 I contacted my Code Institute mentor, who could not provide a valid solution. It was sugggested i mention this in my README.md document.
 
+## 🛠️ Database User Tests
+| User Created   | Login/Test                        |
+| -------------- | ------------------------------------- |
+| **User1**      | Created account, logged in and succesfully created recipes  |
+| **User2**      | Created account, logged in and succesfully created recipes  |
+| **User3**      | Created account, logged in and succesfully created recipes  |
+
 ## Extra Info
 
 I feel this website can ggrow with more info and features as the groundwork is there to build on.
