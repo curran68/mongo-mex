@@ -25,12 +25,22 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
+    """
+    Retrieves all recipes from the database and renders the recipes.html
+    template.
+    """
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
 
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """
+    Handles user registration.  If the method is POST, it validates the
+    username, checks for duplicates, hashes the password, and stores the
+    new user in the database.  If the method is GET, it renders the
+    registration form.
+    """
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()}
@@ -40,13 +50,13 @@ def register():
             flash("Username already exists")
             return redirect(url_for("register"))
 
-        register = {
+        register_data = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(
                 request.form.get("password")
             ),
         }
-        mongo.db.users.insert_one(register)
+        mongo.db.users.insert_one(register_data)
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
         return redirect(url_for("profile", username=session["user"]))
@@ -56,6 +66,11 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+    Handles user login. If the method is POST, it retrieves the user
+    from the database, verifies the password, and sets the user session.
+    If the method is GET, it renders the login form.
+    """
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()}
@@ -66,7 +81,7 @@ def login():
                 existing_user["password"], request.form.get("password")
             ):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(request.form.get("username")))
+                flash(f"Welcome, {request.form.get('username')}")
                 return redirect(
                     url_for("profile", username=session["user"])
                 )
@@ -81,14 +96,25 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    username = mongo.db.users.find_one(
+    """
+    Displays the user's profile information.
+
+    Args:
+        username (str): The username of the user whose profile is
+            being displayed.
+    """
+    user_name = mongo.db.users.find_one(
         {"username": session["user"]}
     )["username"]
-    return render_template("profile.html", username=username)
+    return render_template("profile.html", username=user_name)
 
 
 @app.route("/logout")
 def logout():
+    """
+    Logs the user out by removing the user session and redirects to
+    the login page.
+    """
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
@@ -96,6 +122,12 @@ def logout():
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    """
+    Handles adding a new recipe. If the method is POST, it processes
+    the form data, including image upload, and inserts the new recipe
+    into the database. If the method is GET, it renders the add_recipe
+    form.
+    """
     if request.method == "POST":
         recipe_image = request.files.get("recipe_image")
         image_filename = None
@@ -103,7 +135,7 @@ def add_recipe():
             image_filename = secure_filename(recipe_image.filename)
             recipe_image.save(os.path.join("static/images", image_filename))
 
-        recipe = {
+        recipe_data = {
             "recipe_name": request.form.get("recipe_name"),
             "recipe_ingredients": request.form.get(
                 "recipe_ingredients").split("\n"),
@@ -113,7 +145,7 @@ def add_recipe():
             "image_filename": image_filename,
         }
 
-        mongo.db.recipes.insert_one(recipe)
+        mongo.db.recipes.insert_one(recipe_data)
         flash("Recipe Successfully Added")
         return redirect(url_for("get_recipes"))
 
@@ -123,6 +155,15 @@ def add_recipe():
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+    """
+    Handles editing an existing recipe. If the method is POST, it
+    processes the form data, including image upload, and updates the
+    recipe in the database. If the method is GET, it retrieves the
+    recipe data and renders the edit_recipe form.
+
+    Args:
+        recipe_id (str): The unique ID of the recipe to be edited.
+    """
     if request.method == "POST":
         recipe_image = request.files.get("recipe_image")
         image_filename = None
@@ -130,7 +171,7 @@ def edit_recipe(recipe_id):
             image_filename = secure_filename(recipe_image.filename)
             recipe_image.save(os.path.join("static/images", image_filename))
 
-        recipe = {
+        recipe_data = {
             "recipe_name": request.form.get("recipe_name"),
             "recipe_ingredients": request.form.get(
                 "recipe_ingredients").split("\n"),
@@ -141,7 +182,7 @@ def edit_recipe(recipe_id):
         }
 
         mongo.db.recipes.update_one(
-            {"_id": ObjectId(recipe_id)}, {"$set": recipe}
+            {"_id": ObjectId(recipe_id)}, {"$set": recipe_data}
         )
         flash("Recipe Successfully Updated")
         return redirect(url_for("get_recipes"))
@@ -153,6 +194,13 @@ def edit_recipe(recipe_id):
 
 @app.route("/delete_recipe/<recipe_id>", methods=["GET", "POST"])
 def delete_recipe(recipe_id):
+    """
+    Handles deleting a recipe.  Verifies that the user is logged in
+    and that the recipe exists and belongs to the user before deleting it.
+
+    Args:
+        recipe_id (str): The unique ID of the recipe to be deleted.
+    """
     if "user" not in session:
         flash("You need to be logged in to delete recipes")
         return redirect(url_for("login"))

@@ -133,9 +133,21 @@ I contacted my Code Institute mentor, who could not provide a valid solution. It
 ## 🛠️ Database User Tests
 | User Created   | Login/Test                        |
 | -------------- | ------------------------------------- |
-| **User1**      | Created account, logged in and succesfully created recipes  |
-| **User2**      | Created account, logged in and succesfully created recipes  |
-| **User3**      | Created account, logged in and succesfully created recipes  |
+| **User1**      | Created account, logged in and succesfully created recipes tested for update and delete successfully |
+| **User2**      | Created account, logged in and succesfully created recipes tested for update and delete successfully |
+| **User3**      | Created account, logged in and succesfully created recipes tested for update and delete successfully |
+
+## app.py test
+
+Having tested my app.py file in vscode using pylint score is below :-
+
+------------------------------------------------------------------
+Your code has been rated at 9.01/10 (previous run: 8.13/10, +0.88)
+
+
+## Lighthouse Performance Test
+
+![examples](static/examples/lighthouse.jpg)
 
 ## Extra Info
 
