@@ -23,8 +23,12 @@ I have designed the site with the intention of allowing users to be able to view
 Layout has been designed to be relaively simple, easy to navigate and informative.
 On the site i have implemented some sample images of Mexican food to highlight variation, colours etc.
 
+## How to access
+
+Heroku URL - https://git.heroku.com/dbmongomc.git
 ---
 Mexicana Repo - https://github.com/curran68/mongo-mex.git
+---
 ## 🌟 Features
 - **Core feature 1**: Responsive website aimed at highlighting Mexican food.
 - **Core feature 2**: Clean layout, with good functionality designed with clean colours .
@@ -69,7 +73,20 @@ Fonts used in this site are from Google Fonts, i have used Two different ones (J
 
 ### Installation
 
+
+1. Created repo in Github, cloned into Microsoft VSCode.
+2. Accessed MongoDB, logged into my account, setup database as a starting point built with three courses in mind (starter, mains and desserts).
+3. Logged into Heroku making sure the app connected to my repo so that it updates as i go on.
+4. Within VS Code using HTML, CSS, JQuery, Flask and use of Materialize templates created main structure of the site.
+5. Used Python code, Flask and Jinja formatting also.
+6. Google fonts for the import of 2 particular font styles.
+7. Fontawesome was also used.
+8. Made use of Werkzeug security for authentication.
+
+
 Repository created in Github, cloned into Microsoft VS Code followed standard procedures.
+
+
 
 Process followed, created database in Mongodb to enable Data to be adapted updated accordingly. Installation of Python Pymongo to enable connectivity added routes where applicable.
 Within VS Code created Base templates to allow use of Jinja formatting alongside created extra templates in a static directory and linked accordingly.
@@ -150,5 +167,6 @@ Your code has been rated at 9.01/10 (previous run: 8.13/10, +0.88)
 ![examples](static/examples/lighthouse.jpg)
 
 ## Extra Info
-
-I feel this website can ggrow with more info and features as the groundwork is there to build on.
+Having structured the layout for Mexicana recipe site and tested user creation and login functionality with also the ability to update and delete.
+Images can be added to individual recipes.
+I feel this website can grow with more info and features as the groundwork is there to build on.
